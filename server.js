@@ -179,8 +179,9 @@ var roomOptions = {
 };
 
 var soup = mediasoup.Server({
-    logLevel: "warn",
-    rtcListenIPV4: "10.2.175.105",
+    logLevel: "debug",
+    logTags: ['ice', 'rtcp', 'dtls'],
+    rtcListenIPV4: "127.0.0.1",
     rtcListenIPV6: false,
     dtlsCertificateFile: "keys/server.crt",
     dtlsPrivateKeyFile: "keys/server.key"
@@ -195,7 +196,7 @@ var room = null;
 
 var argv = minimist(process.argv.slice(2), {
     "default": {
-        as_uri: "http://localhost:8085/"
+        as_uri: "https://localhost:8443/"
     }
 });
 
